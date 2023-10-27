@@ -20,16 +20,10 @@
     "url": "https://github.com/osnmarket/prunella.git"
   },
   "license": "MIT",
-  "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
     "init-msw": "msw init public/",
     "build-watch": "rm -rf ./dist && rollup -c -w --bundleConfigAsCjs",
-    "build-rollup": "rm -rf ./dist && rm -rf node_modules &&  rollup -c --bundleConfigAsCjs"
+    "build": "rm -rf ./dist && rollup -c --bundleConfigAsCjs"
   },
   "eslintConfig": {
     "extends": [

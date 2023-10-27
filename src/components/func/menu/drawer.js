@@ -1,7 +1,7 @@
 import React from "react";
 import { Stack, StackDivider, VStack } from "@chakra-ui/react";
 import { IndicatorMenuList } from "./index";
-import { CustomDrawer } from "..";
+import { CustomDrawer } from "../../layout/drawer";
 import { PropTypes } from "prop-types";
 
 export const MobileDrawer = ({
