@@ -8,17 +8,17 @@ export const IconedButton = ({
   style,
   message,
   rightIcon,
-  leftIcon,
+  leftIcon
 }) => {
   return (
     <Button
       {...{
-        rightIcon,
+        onClick,
         leftIcon,
+        rightIcon
       }}
       {...(!rightIcon &&
         !leftIcon && { rightIcon: <FiArrowRight size={"1.5rem"} /> })}
-      {...onClick}
       {...style}
     >
       {message}
@@ -36,47 +36,44 @@ IconedButton.defaultProps = {
     justifyContent: "center",
     borderWidth: "2px",
     fontSize: "1rem",
-    h: "3rem",
+    h: "3rem"
   },
   rightIcon: <FiArrowRight size={"1.5rem"} />,
   leftIcon: <FiArrowLeft size={"1.5rem"} />,
   message: "Retour en arriere",
-  onClick: {},
+  onClick: {}
 };
 
-export const SocialButton = ({
-  onClick,
-  colorScheme,
-  bgColor,
-  color,
-  message,
-  icon,
-  variant,
-  pl,
-  size,
-  justifyContent,
-}) => {
+export const SocialButton = ({ onClick, style, message, leftIcon }) => {
   return (
     <Button
-      leftIcon={icon || <FiArrowLeft size={"1.5rem"} />}
+      {...style}
       {...{
-        pl,
-        justifyContent,
-        variant,
         onClick,
-        colorScheme,
-        bgColor,
-        color,
-        size,
+        leftIcon
       }}
-      fontSize={"1rem"}
-      h={"1.5rem"}
     >
       {message}
     </Button>
   );
 };
 
+SocialButton.defaultProps = {
+  style: {
+    colorScheme: "orange",
+    bgColor: "#fff",
+    color: "orange",
+    message: "variant",
+    variant: "outline",
+    justifyContent: "center",
+    fontSize: "1rem",
+    size: "lg",
+    h: "3rem"
+  },
+  leftIcon: <FiArrowLeft size={"1.5rem"} />,
+  message: "Retour en arriere",
+  onClick: {}
+};
 export const BackToHome = ({ onClick, cta, leftIcon }) => {
   return (
     <Button
@@ -93,62 +90,58 @@ export const BackToHome = ({ onClick, cta, leftIcon }) => {
   );
 };
 
-export const AvisButton = ({
-  bgColor,
-  icon,
-  message,
-  h,
-  p,
-  iconSize,
-  textSize,
-  externe,
-}) => {
-  return externe ? (
+export const AvisButton = ({ style, icon, message, outMessage }) => {
+  return outMessage ? (
     <VStack>
-      <Button
-        {...{
-          bgColor,
-          p,
-        }}
-        fontSize={iconSize || "3rem"}
-        h={h || "auto"}
-      >
-        {icon}
-      </Button>
-      <Text fontSize={textSize}>{message}</Text>
+      <Button {...style}>{icon.value}</Button>
+      <Text {...message.style}>{message.value}</Text>
     </VStack>
   ) : (
-    <Button
-      {...{
-        bgColor,
-        p,
-      }}
-      h={h || "auto"}
-    >
+    <Button {...style}>
       <VStack>
-        <Text fontSize={iconSize}>{icon}</Text>
-        <Text fontSize={textSize}>{message}</Text>
+        <Text {...icon.style}>{icon.value}</Text>
+        <Text {...message.style}>{message.value}</Text>
       </VStack>
     </Button>
   );
 };
 
 AvisButton.propTypes = {
-  icon: PropTypes.string,
-  bgColor: PropTypes.string,
-  message: PropTypes.string,
-  h: PropTypes.string,
-  p: PropTypes.string,
-  fontSize: PropTypes.string,
-  externe: PropTypes.bool,
+  style: PropTypes.shape({
+    bgColor: PropTypes.string,
+    h: PropTypes.string,
+    p: PropTypes.string,
+    fontSize: PropTypes.string
+  }),
+  icon: PropTypes.shape({
+    value: PropTypes.string,
+    style: PropTypes.shape({})
+  }),
+  message: PropTypes.shape({
+    value: PropTypes.string,
+    style: PropTypes.shape({})
+  }),
+  outMessage: PropTypes.bool
 };
 
 AvisButton.defaultProps = {
-  bgColor: "#eeeeee",
-  message: "Decevant",
-  icon: "ðŸ¥°",
-  p: "1rem",
-  iconSize: "3rem",
-  textSize: "1rem",
-  externe: false,
+  style: {
+    bgColor: "#eeeeee",
+    p: "1rem",
+    fontSize: "3rem",
+    h: "auto"
+  },
+  icon: {
+    value: "ðŸ¥°",
+    style: {
+      fontSize: "3rem"
+    }
+  },
+  message: {
+    value: "Decevant",
+    style: {
+      fontSize: "1rem"
+    }
+  },
+  outMessage: false
 };

@@ -9,11 +9,18 @@
   "module": "dist/index.esm.js",
   "source": "src/index.js",
   "src": "./src",
+  "keywords": [],
+  "author": "",
+  "homepage": "https://github.com/osnmarket/prunella.git",
+  "bugs": "https://github.com/osnmarket/prunella.git/issues",
   "exports": {
     ".": {
       "import": "./dist/index.cjs.js",
       "require": "./dist/index.cjs.js"
     }
+  },
+  "publishConfig": {
+    "@osnmarket:registry": "https://npm.pkg.github.com"
   },
   "repository": {
     "type": "git",
@@ -96,7 +103,5 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0"
-  },
-  "keywords": [],
-  "author": ""
+  }
 }
