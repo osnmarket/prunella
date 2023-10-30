@@ -1,6 +1,5 @@
-import { common, func } from "./components";
+import * as components from "./components";
 
 export default {
-  ...common,
-  ...func,
+  ...components
 };
