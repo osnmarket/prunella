@@ -4,6 +4,7 @@ import { IndicatorMenuList } from "./index";
 import { CustomDrawer } from "../drawer";
 
 export const MobileDrawer = ({
+  colors,
   active,
   isOpen,
   onClose,
@@ -34,7 +35,7 @@ export const MobileDrawer = ({
         pos={"relative"}
         h={"100%"}
       >
-        <IndicatorMenuList payload={mainMenu} active={active} />
+        <IndicatorMenuList payload={mainMenu} active={active} colors={colors} />
       </VStack>
     </CustomDrawer>
   );
