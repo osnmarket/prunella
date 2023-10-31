@@ -80,12 +80,12 @@ export const FormInput = ({
 }) => {
   const inputProps = {
     bgColor: colors.bgColor,
-    color: colors.colors,
+    colorScheme: colors.colorScheme,
     name: uid,
     onChange: handleChange,
     onBlur: handleBlur,
     borderColor: colors.borderColor,
-    fontcolor: colors.fontColor,
+    fontColor: colors.fontColor,
     placeholder,
     type: type || "text",
     value: values[uid],
@@ -100,7 +100,7 @@ export const FormInput = ({
         isInvalid={errors[uid]}
         variant="floating"
       >
-        <FormLabel color={inputProps.color} fontWeight={"bold"}>
+        <FormLabel color={colors.color} fontWeight={"bold"}>
           {label}
         </FormLabel>
 
@@ -127,9 +127,9 @@ export const FormInput = ({
                 zIndex={2}
               >
                 {type == "password" ? (
-                  <VscEye color={inputProps.color} size={"1.25rem"} />
+                  <VscEye color={colors.color} size={"1.25rem"} />
                 ) : (
-                  <VscEyeClosed color={inputProps.color} size={"1.25rem"} />
+                  <VscEyeClosed color={colors.color} size={"1.25rem"} />
                 )}
               </Box>
             )}
@@ -217,7 +217,7 @@ export const FormSearch = ({
   placeholder
 }) => {
   const inputProps = {
-    borderColor: colors.black,
+    borderColor: colors.borderColor,
     fontWeight: 500,
     name: uid,
     onChange: handleChange,

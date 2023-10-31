@@ -55,14 +55,22 @@ export const BackToHome = ({ onClick, cta, leftIcon }) => {
   );
 };
 
-export const ReactionButton = ({ style, icon, message, outMessage }) => {
+export const ReactionButton = ({
+  onClick,
+  style,
+  icon,
+  message,
+  outMessage
+}) => {
   return outMessage ? (
     <VStack>
-      <Button {...style}>{icon.value}</Button>
+      <Button {...style} onClick={onClick}>
+        {icon.value}
+      </Button>
       <Text {...message.style}>{message.value}</Text>
     </VStack>
   ) : (
-    <Button {...style}>
+    <Button {...style} onClick={onClick}>
       <VStack>
         <Text {...icon.style}>{icon.value}</Text>
         <Text {...message.style}>{message.value}</Text>

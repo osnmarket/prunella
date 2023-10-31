@@ -27,7 +27,6 @@ export const HorizontalStepper = ({
         }
         index={activeStepControl}
         justifyContent={"start"}
-        //orientation="vertical"
       >
         {steps.map((step, index) => (
           <Step key={index} flex={"none"}>

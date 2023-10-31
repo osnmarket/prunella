@@ -11,7 +11,14 @@ import {
   Button
 } from "@chakra-ui/react";
 
-export const ModalCard = ({ title, children, footer, props, overlay }) => {
+export const ModalCard = ({
+  title,
+  children,
+  footer,
+  props,
+  overlay,
+  withCloseButton
+}) => {
   const disclosure = useDisclosure();
   return (
     <>
@@ -20,7 +27,7 @@ export const ModalCard = ({ title, children, footer, props, overlay }) => {
         <ModalOverlay {...overlay} />
         <ModalContent>
           {title && <ModalHeader>{title}</ModalHeader>}
-          <ModalCloseButton />
+          {withCloseButton && <ModalCloseButton />}
           <ModalBody>{children}</ModalBody>
           {footer && <ModalFooter>{footer}</ModalFooter>}
         </ModalContent>

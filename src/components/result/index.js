@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Button, Heading, Text } from "@chakra-ui/react";
 
-export const NotFound = ({ cta, message, item, status }) => {
+export const NotFound = ({ cta, message, item, status, onClick }) => {
   return (
     <Box textAlign={"center"} py={10} px={6}>
       <Heading
@@ -21,7 +21,7 @@ export const NotFound = ({ cta, message, item, status }) => {
       </Text>
 
       <Button
-        onClick={() => window.history.go(-1)}
+        onClick={onClick}
         colorScheme={"orange"}
         bgGradient={"linear(to-r, orange.400, orange.500, orange.600)"}
         color={"white"}
