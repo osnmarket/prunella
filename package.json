@@ -1,6 +1,6 @@
 {
   "name": "@osnmarket/prunella",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "osnmarket storybook",
   "files": [
     "./dist"
@@ -96,9 +96,6 @@
     "formik": "^2.4.5",
     "framer-motion": "^10.16.4",
     "next": "^13.5.6",
-    "next-images": "^1.8.5",
-    "next-link": "^2.0.0",
-    "next-navigation": "^1.0.6",
     "prettier": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
