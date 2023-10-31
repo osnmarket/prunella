@@ -38,7 +38,7 @@ export const IndicatorMenuList = ({ payload, active, colors }) => {
     <Stack alignItems={"flex-start"} gap={"2rem"} py={".1rem"}>
       {payload.map(({ title, cta: { link } }, i) => (
         <MenuLink
-          colors
+          colors={colors}
           withIndicator
           active={active == i}
           {...{ title, link }}
@@ -54,7 +54,7 @@ export const IndicatorTabList = ({ payload, active, colors }) => {
     <Stack alignItems={"flex-start"} gap={"2rem"} py={".1rem"}>
       {payload.map(({ title, cta: { link } }, i) => (
         <MenuLink
-          colors
+          colors={colors}
           withIndicator
           active={active == i}
           {...{ title, link }}
