@@ -68,28 +68,3 @@ export const AccordionList = ({ payload }) => {
     </Accordion>
   );
 };
-
-AccordionList.defaultProps = {
-  payload: [
-    {
-      borderWidth: 1,
-      borderColor: "black",
-      my: 4,
-      p: 2,
-      borderRadius: 8,
-      title: "Orange Money",
-      desc: "Mobile payement",
-      isExpanded: "false"
-    },
-    {
-      borderWidth: 1,
-      borderColor: "black",
-      my: 4,
-      p: 2,
-      borderRadius: 8,
-      title: "Orange et Moi",
-      desc: "selcare",
-      isExpanded: "false"
-    }
-  ]
-};

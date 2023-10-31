@@ -3,6 +3,7 @@ import { HStack, Stack } from "@chakra-ui/layout";
 import { MenuLink } from "./link";
 
 export const BasicMenuList = ({
+  colors,
   active,
   activeTint,
   inactiveTint,
@@ -16,6 +17,7 @@ export const BasicMenuList = ({
         <MenuLink
           active={active == i}
           {...{
+            colors,
             activeTint,
             inactiveTint,
             dark,
@@ -31,11 +33,12 @@ export const BasicMenuList = ({
   );
 };
 
-export const IndicatorMenuList = ({ payload, active }) => {
+export const IndicatorMenuList = ({ payload, active, colors }) => {
   return (
     <Stack alignItems={"flex-start"} gap={"2rem"} py={".1rem"}>
       {payload.map(({ title, cta: { link } }, i) => (
         <MenuLink
+          colors
           withIndicator
           active={active == i}
           {...{ title, link }}
@@ -46,11 +49,12 @@ export const IndicatorMenuList = ({ payload, active }) => {
   );
 };
 
-export const IndicatorTabList = ({ payload, active }) => {
+export const IndicatorTabList = ({ payload, active, colors }) => {
   return (
     <Stack alignItems={"flex-start"} gap={"2rem"} py={".1rem"}>
       {payload.map(({ title, cta: { link } }, i) => (
         <MenuLink
+          colors
           withIndicator
           active={active == i}
           {...{ title, link }}
@@ -62,6 +66,7 @@ export const IndicatorTabList = ({ payload, active }) => {
 };
 
 export const DevBasicMenuList = ({
+  colors,
   payload,
   active,
   borderHeight,
@@ -72,6 +77,7 @@ export const DevBasicMenuList = ({
     <BasicMenuList
       dark
       {...{
+        colors,
         borderHeight,
         active,
         payload,

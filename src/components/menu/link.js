@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, HStack, Heading, Text, Image, Link } from "@chakra-ui/react";
-import PropTypes from "prop-types";
 
 export const SiteHeading = ({ images, sitename, onClick }) => {
   return (
@@ -9,7 +8,7 @@ export const SiteHeading = ({ images, sitename, onClick }) => {
       _hover={{ cursor: "pointer" }}
       onClick={onClick}
     >
-      {images.logo && <Image {...images.logo} />}
+      {images && <Image {...images} />}
       <Heading fontSize={"1.875rem"} lineHeight={"2rem"}>
         {sitename}
       </Heading>
@@ -17,16 +16,7 @@ export const SiteHeading = ({ images, sitename, onClick }) => {
   );
 };
 
-SiteHeading.defaultProps = {
-  images: {
-    logo: {
-      src: "https://bit.ly/dan-abramov",
-      alt: "Souxate"
-    }
-  },
-  sitename: "Souxate",
-  onClick: {}
-};
+SiteHeading.defaultProps = {};
 
 export const MenuLink = ({
   colors,
@@ -91,36 +81,4 @@ export const MenuLink = ({
   );
 };
 
-MenuLink.propTypes = {
-  colors: PropTypes.arrayOf(),
-  dark: PropTypes.bool,
-  withIndicator: PropTypes.bool,
-  active: PropTypes.bool,
-  activeTint: PropTypes.string,
-  inactiveTint: PropTypes.string,
-  desktop: PropTypes.bool,
-  color: PropTypes.string,
-  link: PropTypes.string,
-  title: PropTypes.string,
-  fontSize: PropTypes.string,
-  fontWeight: PropTypes.string,
-  lineHeight: PropTypes.string,
-  borderHeight: PropTypes.string
-};
-
-MenuLink.defaultProps = {
-  white: "#fff",
-  black: "#OOO",
-  colors: {
-    bgColor: "orange",
-    text: {
-      activeTint: "orange",
-      dark: "black",
-      withIndicator: "black"
-    }
-  },
-  title: "Orange Money",
-  link: "/",
-  active: true,
-  desktop: true
-};
+MenuLink.defaultProps = {};

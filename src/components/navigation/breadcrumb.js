@@ -1,6 +1,5 @@
 import React from "react";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
-import { FiChevronRight } from "react-icons/fi";
 
 export const NavBreadcrumb = ({
   spacing,
@@ -28,20 +27,4 @@ export const NavBreadcrumb = ({
   );
 };
 
-NavBreadcrumb.defaultProps = {
-  crumbs: [
-    {
-      title: "Start",
-      link: "#"
-    },
-    {
-      title: "Internet et fixe",
-      link: "#"
-    }
-  ],
-  bgColor: "black",
-  textColor: "white",
-  separator: <FiChevronRight color="white" />,
-  spacing: "10px",
-  pl: "1rem"
-};
+NavBreadcrumb.defaultProps = {};

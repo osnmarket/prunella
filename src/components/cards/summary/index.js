@@ -1,4 +1,3 @@
-import { PropTypes } from "prop-types";
 import { isValidElement } from "react";
 import {
   Card,
@@ -28,8 +27,8 @@ export const Summary = ({
           data.body
         ) : (
           <Stack>
-            {data.body.map((item) => (
-              <HStack {...bodyStyle}>
+            {data.body.map((item, i) => (
+              <HStack {...bodyStyle} key={`summaryitem-${i}`}>
                 <Text>{item.title}</Text>
                 <Text>{item.value + " " + item.unit}</Text>
               </HStack>
@@ -53,44 +52,7 @@ export const Summary = ({
     </Card>
   );
 };
-Summary.propTypes = {
-  containerStyle: PropTypes.shape({
-    bg: PropTypes.string
-  }),
-  headerStyle: PropTypes.shape({
-    w: PropTypes.string,
-    fontSize: PropTypes.string
-  }),
-  bodyStyle: PropTypes.shape({
-    w: PropTypes.string,
-    justifyContent: PropTypes.string,
-    fontSize: PropTypes.string
-  }),
-  footerStyle: PropTypes.shape({
-    w: PropTypes.string,
-    justifyContent: PropTypes.string,
-    fontSize: PropTypes.string
-  }),
-  data: PropTypes.shape({
-    header: PropTypes.element || PropTypes.string.isRequired,
-    body:
-      PropTypes.element ||
-      PropTypes.arrayOf(
-        PropTypes.shape({
-          title: PropTypes.string.isRequired,
-          value: PropTypes.number.isRequired,
-          unit: PropTypes.string.isRequired
-        })
-      ),
-    footer:
-      PropTypes.element ||
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        value: PropTypes.number.isRequired,
-        unit: PropTypes.string.isRequired
-      })
-  })
-};
+
 Summary.defaultProps = {
   containerStyle: {
     p: 4,
@@ -102,14 +64,5 @@ Summary.defaultProps = {
   },
   footerStyle: {
     justifyContent: "space-between"
-  },
-  data: {
-    header: "Montant a payer",
-    body: [
-      { title: "Frais d’accès au service ", value: "0", unit: "FCFA" },
-      { title: "1 numéro illimité", value: "5000", unit: "FCFA" },
-      { title: "2 wifi extenders", value: "10 000", unit: "FCFA" }
-    ],
-    footer: { title: "Total", value: "27900", unit: "FCFA" }
   }
 };

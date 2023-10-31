@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, HStack, Heading } from "@chakra-ui/react";
 import { SocialButton } from "../button";
-import * as fa from "react-icons/fa";
 
 export const FollowUs = ({ payload, color }) => {
   return (
@@ -12,12 +11,12 @@ export const FollowUs = ({ payload, color }) => {
         </Heading>
       </Box>
       <HStack alignItems={"flex-start"}>
-        {payload.map(({ pl, icon, defaultStyling }) => (
+        {payload.map(({ leftIcon, style }, i) => (
           <SocialButton
+            key={`followus-${i}`}
             {...{
-              pl,
-              icon,
-              defaultStyling
+              leftIcon,
+              style
             }}
           />
         ))}
@@ -25,36 +24,6 @@ export const FollowUs = ({ payload, color }) => {
     </HStack>
   );
 };
-
 FollowUs.defaultProps = {
-  payload: [
-    {
-      pl: 0,
-      icon: <fa.FaFacebookF />,
-      defaultStyling: {
-        size: "sm",
-        variant: "unstyle",
-        color: "black"
-      }
-    },
-    {
-      pl: 0,
-      icon: <fa.FaInstagram />,
-      defaultStyling: {
-        size: "sm",
-        variant: "unstyle",
-        color: "black"
-      }
-    },
-    {
-      pl: 0,
-      icon: <fa.FaGooglePlus />,
-      defaultStyling: {
-        size: "sm",
-        variant: "unstyle",
-        color: "black"
-      }
-    }
-  ],
-  color: "black"
+  color: "#000"
 };

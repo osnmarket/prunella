@@ -52,36 +52,8 @@ export const Recap = ({
 };
 
 Recap.defaultProps = {
-  title: "Adresse d’installation",
-  cta: {},
   grid: {
     columns: "3",
     spacing: "5"
-  },
-  data: [
-    {
-      title: "Region",
-      value: "Dakar"
-    },
-    {
-      title: "Ville",
-      value: "Dakar"
-    },
-    {
-      title: "Commune",
-      value: "Sicap Liberte"
-    },
-    {
-      title: "Quartier",
-      value: "Liberte 6"
-    },
-    {
-      title: "Type de logement",
-      value: "Villa"
-    },
-    {
-      title: "Numéro",
-      value: "6090"
-    }
-  ]
+  }
 };

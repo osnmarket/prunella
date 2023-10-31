@@ -20,5 +20,5 @@ export const ClickableListItem = ({ text, link, fontSize, color }) => {
 
 ClickableListItem.defaultProps = {
   fontSize: ".875rem",
-  color: "orange"
+  color: "black"
 };

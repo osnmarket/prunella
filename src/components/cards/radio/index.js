@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import { Box, HStack, chakra, useRadio } from "@chakra-ui/react";
 
@@ -42,23 +41,6 @@ export const RadioCard = ({
   );
 };
 
-RadioCard.propTypes = {
-  commonStyle: PropTypes.shape({
-    box: PropTypes.shape({}),
-    check: PropTypes.shape({})
-  }),
-  activeStyle: PropTypes.shape({
-    bg: PropTypes.string,
-    borderColor: PropTypes.string,
-    checkbg: PropTypes.string
-  }),
-  noActiveBg: PropTypes.shape({
-    bg: PropTypes.string,
-    borderColor: PropTypes.string,
-    checkbg: PropTypes.string
-  })
-};
-
 RadioCard.defaultProps = {
   commonStyle: {
     box: {
@@ -75,15 +57,5 @@ RadioCard.defaultProps = {
       justifyContent: "center",
       bg: "#fff"
     }
-  },
-  activeStyle: {
-    bg: "#ff7900",
-    borderColor: "black",
-    checkbg: "black"
-  },
-  noActiveStyle: {
-    bg: "black",
-    borderColor: "#fff",
-    checkbg: "#fff"
   }
 };

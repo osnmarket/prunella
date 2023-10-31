@@ -1,7 +1,6 @@
 import React from "react";
 import { Button, VStack, Text } from "@chakra-ui/react";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
-import { PropTypes } from "prop-types";
 
 export const IconedButton = ({
   onClick,
@@ -26,24 +25,6 @@ export const IconedButton = ({
   );
 };
 
-IconedButton.defaultProps = {
-  style: {
-    colorScheme: "orange",
-    bgColor: "#fff",
-    color: "orange",
-    message: "variant",
-    variant: "outline",
-    justifyContent: "center",
-    borderWidth: "2px",
-    fontSize: "1rem",
-    h: "3rem"
-  },
-  rightIcon: <FiArrowRight size={"1.5rem"} />,
-  leftIcon: <FiArrowLeft size={"1.5rem"} />,
-  message: "Retour en arriere",
-  onClick: {}
-};
-
 export const SocialButton = ({ onClick, style, message, leftIcon }) => {
   return (
     <Button
@@ -58,22 +39,6 @@ export const SocialButton = ({ onClick, style, message, leftIcon }) => {
   );
 };
 
-SocialButton.defaultProps = {
-  style: {
-    colorScheme: "orange",
-    bgColor: "#fff",
-    color: "orange",
-    message: "variant",
-    variant: "outline",
-    justifyContent: "center",
-    fontSize: "1rem",
-    size: "lg",
-    h: "3rem"
-  },
-  leftIcon: <FiArrowLeft size={"1.5rem"} />,
-  message: "Retour en arriere",
-  onClick: {}
-};
 export const BackToHome = ({ onClick, cta, leftIcon }) => {
   return (
     <Button
@@ -104,44 +69,4 @@ export const ReactionButton = ({ style, icon, message, outMessage }) => {
       </VStack>
     </Button>
   );
-};
-
-ReactionButton.propTypes = {
-  style: PropTypes.shape({
-    bgColor: PropTypes.string,
-    h: PropTypes.string,
-    p: PropTypes.string,
-    fontSize: PropTypes.string
-  }),
-  icon: PropTypes.shape({
-    value: PropTypes.string,
-    style: PropTypes.shape({})
-  }),
-  message: PropTypes.shape({
-    value: PropTypes.string,
-    style: PropTypes.shape({})
-  }),
-  outMessage: PropTypes.bool
-};
-
-ReactionButton.defaultProps = {
-  style: {
-    bgColor: "#eeeeee",
-    p: "1rem",
-    fontSize: "3rem",
-    h: "auto"
-  },
-  icon: {
-    value: "ðŸ¥°",
-    style: {
-      fontSize: "3rem"
-    }
-  },
-  message: {
-    value: "Decevant",
-    style: {
-      fontSize: "1rem"
-    }
-  },
-  outMessage: false
 };

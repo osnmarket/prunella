@@ -36,6 +36,5 @@ export const NotFound = ({ cta, message, item, status }) => {
 NotFound.defaultProps = {
   message: "Not Found",
   status: "404",
-  item: "Page Home ",
   cta: "Retour"
 };

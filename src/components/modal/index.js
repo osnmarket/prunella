@@ -10,7 +10,6 @@ import {
   useDisclosure,
   Button
 } from "@chakra-ui/react";
-import { PropTypes } from "prop-types";
 
 export const ModalCard = ({ title, children, footer, props, overlay }) => {
   const disclosure = useDisclosure();
@@ -29,18 +28,6 @@ export const ModalCard = ({ title, children, footer, props, overlay }) => {
     </>
   );
 };
-ModalCard.propTypes = {
-  props: PropTypes.shape({
-    isOpen: PropTypes.bool,
-    isClose: PropTypes.bool,
-    size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl", "full"])
-  })
-};
-
 ModalCard.defaultProps = {
-  title: "Suivre une demande",
-  overlay: {
-    bg: "blackAlpha.300",
-    backdropFilter: "blur(10px) hue-rotate(90deg)"
-  }
+  title: "Suivre une demande"
 };

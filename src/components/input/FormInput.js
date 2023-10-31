@@ -144,19 +144,7 @@ export const FormInput = ({
   );
 };
 
-FormInput.defaultProps = {
-  type: "password",
-  errors: [],
-  values: [],
-  type: "text",
-  colors: {
-    bgColor: "#FFF",
-    color: "#FFF",
-    borderColor: "#959595",
-    fontColor: "#000"
-  },
-  label: "test"
-};
+FormInput.defaultProps = {};
 
 export const FormSubmit = ({
   colors,
@@ -216,20 +204,7 @@ export const FormSubmit = ({
   );
 };
 
-FormSubmit.defaultProps = {
-  errors: [],
-  colors: {
-    bgColor: "orange",
-    color: "#FFF",
-    borderColor: "#959595",
-    fontColor: "#000",
-    error: "red"
-  },
-  colorScheme: "orange",
-  isSubmitting: false,
-  loadingText: "Soumettre",
-  submit_message: "Soumettre"
-};
+FormSubmit.defaultProps = {};
 
 export const FormSearch = ({
   uid,
@@ -266,10 +241,4 @@ export const FormSearch = ({
   );
 };
 
-FormSearch.defaultProps = {
-  errors: [],
-  colors: {
-    borderColor: "#959595"
-  },
-  isDisabled: false
-};
+FormSearch.defaultProps = {};

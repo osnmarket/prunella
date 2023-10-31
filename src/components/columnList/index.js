@@ -23,28 +23,5 @@ export const FooterColumn = ({ menu, submenu, colors }) => {
 };
 
 FooterColumn.defaultProps = {
-  menu: "Boutique en ligne",
-  submenu: [
-    {
-      message: "Accessoires",
-      link: "/"
-    },
-    {
-      message: "Mobiles",
-      link: "/"
-    },
-    {
-      message: "Internet et fixe",
-      link: "/"
-    },
-    {
-      message: "E-cartes",
-      link: "/"
-    }
-  ],
-  colors: {
-    heading: "black",
-    link: "black",
-    text: "black"
-  }
+  menu: "Boutique en ligne"
 };

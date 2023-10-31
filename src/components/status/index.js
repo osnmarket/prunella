@@ -4,7 +4,7 @@ import {
   AlertDescription,
   AlertIcon,
   AlertTitle,
-  Spinner,
+  Spinner
 } from "@chakra-ui/react";
 
 export const ErrorComponent = ({ title, desc }) => {
@@ -19,10 +19,7 @@ export const ErrorComponent = ({ title, desc }) => {
   );
 };
 
-ErrorComponent.defaultProps = {
-  title: "Oups",
-  desc: "We have trouble loading this component. Please try again",
-};
+ErrorComponent.defaultProps = {};
 
 export const WarningComponent = ({ message }) => {
   return (
@@ -33,14 +30,12 @@ export const WarningComponent = ({ message }) => {
   );
 };
 
-WarningComponent.defaultProps = {
-  message: "This component might load incorrectly",
-};
+WarningComponent.defaultProps = {};
 
 export const LoadingComponent = ({ color }) => {
   return <Spinner color={color} />;
 };
 
 WarningComponent.defaultProps = {
-  color: "orange",
+  color: "orange"
 };

@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {
   Box,
   Image,
@@ -8,13 +7,13 @@ import {
   StepSeparator,
   StepStatus,
   StepTitle,
-  Stepper,
+  Stepper
 } from "@chakra-ui/react";
 export const VerticalStepper = ({
   activeStepControl,
   parentStepStyle,
   childStepStyle,
-  steps,
+  steps
 }) => {
   return (
     <Stepper
@@ -108,7 +107,7 @@ export const VerticalStepper = ({
                       background:
                         parentStepStyle && parentStepStyle.separatorColor
                           ? parentStepStyle.separatorColor
-                          : "black",
+                          : "black"
                     }
                   : {}
               }
@@ -192,7 +191,7 @@ export const VerticalStepper = ({
                         background:
                           parentStepStyle && parentStepStyle.separatorColor
                             ? parentStepStyle.separatorColor
-                            : "black",
+                            : "black"
                       }
                     : {}
                 }
@@ -296,7 +295,7 @@ export const VerticalStepper = ({
                       style={{
                         background: childStepStyle.separatorColor
                           ? childStepStyle.separatorColor
-                          : "black",
+                          : "black"
                       }}
                     />
                   </Step>
@@ -306,7 +305,7 @@ export const VerticalStepper = ({
                 style={{
                   background: childStepStyle.separatorColor
                     ? childStepStyle.separatorColor
-                    : "black",
+                    : "black"
                 }}
               />
             </Step>
@@ -316,126 +315,9 @@ export const VerticalStepper = ({
     </Stepper>
   );
 };
-VerticalStepper.propTypes = {
-  activeStepControl: PropTypes.shape({
-    parent: PropTypes.number.isRequired,
-    child: PropTypes.number,
-  }),
-  steps: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      style: PropTypes.shape({
-        onComplete: PropTypes.string.isRequired,
-        onActive: PropTypes.string.isRequired,
-        onInComplete: PropTypes.string,
-      }),
-      isOpen: PropTypes.bool,
-      sub: PropTypes.arrayOf(
-        PropTypes.shape({
-          data: PropTypes.arrayOf(
-            PropTypes.shape({
-              title: PropTypes.string,
-            })
-          ),
-        })
-      ),
-    })
-  ),
-  parentStepStyle: PropTypes.shape({
-    rounded: PropTypes.string,
-    separatorColor: PropTypes.string,
-    colorScheme: PropTypes.string,
-    spacing: PropTypes.string,
-  }),
-  childStepStyle: PropTypes.shape({
-    rounded: PropTypes.string,
-    colorScheme: PropTypes.string,
-    spacing: PropTypes.string,
-    separatorColor: PropTypes.string,
-    onActive: PropTypes.string.isRequired,
-    onComplete: PropTypes.string.isRequired,
-    onInComplete: PropTypes.string,
-  }),
-};
 VerticalStepper.defaultProps = {
   activeStepControl: {
     parent: 0,
-    child: 0,
-  },
-  steps: [
-    {
-      title: "Test d'eligibilite",
-      style: {
-        onComplete:
-          "https://cdn.zeplin.io/5d506e4b754cd99aef936750/assets/8E80C5BF-161C-404A-BAE0-C879975D78EF-optimized.png",
-        onActive:
-          "https://cdn.zeplin.io/5d506e4b754cd99aef936750/assets/8E80C5BF-161C-404A-BAE0-C879975D78EF-optimized.png",
-      },
-      isOpen: true,
-      sub: {
-        data: [
-          {
-            title: "Information personnelle",
-          },
-          {
-            title: "Localisation",
-          },
-        ],
-      },
-    },
-    {
-      title: "Inscription",
-      style: {
-        onComplete:
-          "https://cdn.zeplin.io/5d506e4b754cd99aef936750/assets/42E58232-6B10-4B72-8487-B26DCAFB6CDE.png",
-        onActive:
-          "https://cdn.zeplin.io/5d506e4b754cd99aef936750/assets/42E58232-6B10-4B72-8487-B26DCAFB6CDE.png",
-      },
-      isOpen: false,
-      sub: {
-        data: [
-          {
-            title: "Type d'abonnement",
-          },
-          {
-            title: "Information de l'abonnement",
-          },
-          {
-            title: "Verification",
-          },
-          {
-            title: "Confirmation",
-          },
-          {
-            title: "Signature",
-          },
-        ],
-      },
-    },
-    {
-      title: "Paiement",
-      style: {
-        onComplete:
-          "https://cdn.zeplin.io/5d506e4b754cd99aef936750/assets/D1304866-F4C8-4881-9A7F-D89CF0F63974.png",
-        onActive:
-          "https://cdn.zeplin.io/5d506e4b754cd99aef936750/assets/D1304866-F4C8-4881-9A7F-D89CF0F63974.png",
-      },
-    },
-    {
-      title: "Notification",
-      style: {
-        onComplete:
-          "https://cdn.zeplin.io/5d506e4b754cd99aef936750/assets/579AFAC9-4FF9-4EEC-81C5-0CB28A247932-optimized.png",
-        onActive:
-          "https://cdn.zeplin.io/5d506e4b754cd99aef936750/assets/579AFAC9-4FF9-4EEC-81C5-0CB28A247932-optimized.png",
-      },
-    },
-  ],
-  childStepStyle: {
-    onActive:
-      "https://cdn.zeplin.io/5d506e4b754cd99aef936750/assets/2704FC34-E4E2-4800-8610-59ED464962D9-optimized.png",
-    onComplete:
-      "https://cdn.zeplin.io/5d506e4b754cd99aef936750/assets/2B5B02C1-231F-401C-8B1F-A2C287548DBA-optimized.png",
-    //onInComplete:'https://cdn.zeplin.io/5d506e4b754cd99aef936750/assets/777F4553-0884-4894-A369-87613BFAFDD5.svg',
-  },
+    child: 0
+  }
 };
