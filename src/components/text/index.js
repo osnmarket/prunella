@@ -1,27 +1,24 @@
 import React from "react";
-import { Heading, Stack } from "@chakra-ui/layout";
+import { ListIcon, ListItem, Link } from "@chakra-ui/react";
 
-export const Teaserheading = ({
-  colors,
-  color,
-  descColor,
-  title,
-  desc,
-  size,
-  fontW
-}) => {
+export const IconedListItem = ({ checkMark, text }) => {
   return (
-    <Stack gap={"1rem"} maxW={"28rem"}>
-      <Heading color={color || colors.title} size={"sm"}>
-        {title}
-      </Heading>
-      <Heading
-        color={descColor || colors.desc}
-        size={size || "lg"}
-        fontWeight={fontW || "bold"}
-      >
-        {desc}
-      </Heading>
-    </Stack>
+    <ListItem fontSize={".875rem"} gap={"1rem"}>
+      <ListIcon fontSize={"1rem"} as={checkMark} />
+      {text}
+    </ListItem>
   );
+};
+
+export const ClickableListItem = ({ text, link, fontSize, color }) => {
+  return (
+    <ListItem {...{ fontSize, color }} gap={"1rem"}>
+      <Link href={link}>{text}</Link>
+    </ListItem>
+  );
+};
+
+ClickableListItem.defaultProps = {
+  fontSize: ".875rem",
+  color: "black"
 };

@@ -72,5 +72,22 @@ export const BubbleCard = ({
 };
 
 BubbleCard.defaultProps = {
-  children: <Text>I am text</Text>
+  bubbleStyle: {
+    h: "18px",
+    w: "25px",
+    display: "flex",
+    bg: "#b5e8f7",
+    top: "4",
+    position: "absolute"
+  },
+  display: "left",
+  cardStyle: {
+    bg: "#b5e8f7",
+    h: "100px",
+    p: 2
+  },
+  containerStyle: {
+    display: "flex",
+    alignItems: "end"
+  }
 };

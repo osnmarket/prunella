@@ -29,7 +29,7 @@ export const HorizontalStepper = ({
         justifyContent={"start"}
       >
         {steps.map((step, index) => (
-          <Step key={index} flex={"none"}>
+          <Step key={`step-${index}`} flex={"none"}>
             <HStack
               bg={
                 index < activeStepControl

@@ -10,8 +10,7 @@ export { SiteHeading, MenuLink } from "./menu/link";
 export { NotFound } from "./result";
 export { SkeletonLoading } from "./skeleton";
 export { ErrorComponent, WarningComponent, LoadingComponent } from "./status";
-export { Teaserheading } from "./text";
-export { IconedListItem, ClickableListItem } from "./text/list";
+export { IconedListItem, ClickableListItem } from "./text";
 export {
   AccordionItemCard,
   AccordionContent,
@@ -30,9 +29,4 @@ export { MobileDrawer } from "./menu/drawer";
 export { FollowUs } from "./columnList/followUs";
 export { FooterColumn } from "./columnList";
 export { Recap } from "./recap";
-export {
-  BasicMenuList,
-  IndicatorMenuList,
-  IndicatorTabList,
-  DevBasicMenuList
-} from "./menu/index";
+export { BasicMenuList, IndicatorMenuList } from "./menu/index";

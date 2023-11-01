@@ -8,8 +8,10 @@ export const BasicMenuList = ({
   activeTint,
   inactiveTint,
   dark,
+  desktop,
   payload,
-  borderHeight
+  borderHeight,
+  withIndicator
 }) => {
   return (
     <HStack alignItems={"center"} gap={".81rem"} py={".1rem"}>
@@ -20,10 +22,11 @@ export const BasicMenuList = ({
             colors,
             activeTint,
             inactiveTint,
+            withIndicator,
             dark,
             title,
             link,
-            desktop: true,
+            desktop,
             borderHeight
           }}
           key={`top-menu-${i}`}
@@ -33,61 +36,17 @@ export const BasicMenuList = ({
   );
 };
 
-export const IndicatorMenuList = ({ payload, active, colors }) => {
+export const IndicatorMenuList = ({ payload, active, colors, desktop }) => {
   return (
     <Stack alignItems={"flex-start"} gap={"2rem"} py={".1rem"}>
       {payload.map(({ title, cta: { link } }, i) => (
         <MenuLink
-          colors={colors}
           withIndicator
           active={active == i}
-          {...{ title, link }}
+          {...{ title, link, desktop, colors }}
           key={`top-menu-${i}`}
         />
       ))}
     </Stack>
   );
-};
-
-export const IndicatorTabList = ({ payload, active, colors }) => {
-  return (
-    <Stack alignItems={"flex-start"} gap={"2rem"} py={".1rem"}>
-      {payload.map(({ title, cta: { link } }, i) => (
-        <MenuLink
-          colors={colors}
-          withIndicator
-          active={active == i}
-          {...{ title, link }}
-          key={`top-menu-${i}`}
-        />
-      ))}
-    </Stack>
-  );
-};
-
-export const DevBasicMenuList = ({
-  colors,
-  payload,
-  active,
-  borderHeight,
-  activeTint,
-  inactiveTint
-}) => {
-  return (
-    <BasicMenuList
-      dark
-      {...{
-        colors,
-        borderHeight,
-        active,
-        payload,
-        activeTint,
-        inactiveTint
-      }}
-    />
-  );
-};
-
-DevBasicMenuList.defaultProps = {
-  borderHeight: 1
 };

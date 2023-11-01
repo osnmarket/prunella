@@ -15,23 +15,24 @@ export const AccordionItemCard = ({ style, title, desc, icon, isExpanded }) => {
       <AccordionContent
         {...{
           title,
-          desc
+          desc,
+          icon,
+          isExpanded
         }}
-        icon={isExpanded ? icon.isExpanded : icon.noExpanded}
       />
     </AccordionItem>
   );
 };
 
-export const AccordionContent = ({ title, desc, icon }) => {
+export const AccordionContent = ({ title, desc, icon, isExpanded }) => {
   return (
     <Fragment>
       <Heading fontSize={"md"}>
         <AccordionButton _hover={{ bgColor: "transparent" }}>
           <Box as="span" flex="1" textAlign="left">
-            <Heading fontSize={"1rem"}>{title.v}</Heading>
+            <Heading fontSize={"1rem"}>{title}</Heading>
           </Box>
-          {icon}
+          {isExpanded && icon ? icon.isExpanded : icon.noExpanded}
         </AccordionButton>
       </Heading>
       <AccordionPanel pb={4}>{desc}</AccordionPanel>

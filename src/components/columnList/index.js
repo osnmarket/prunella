@@ -23,5 +23,5 @@ export const FooterColumn = ({ menu, submenu, colors }) => {
 };
 
 FooterColumn.defaultProps = {
-  menu: "Boutique en ligne"
+  menu: "Souxate"
 };

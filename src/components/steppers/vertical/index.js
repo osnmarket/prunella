@@ -30,7 +30,7 @@ export const VerticalStepper = ({
     >
       {steps.map((step, index) =>
         !step.sub ? (
-          <Step key={`parentStep-${index}`}>
+          <Step key={`parent-step-${index}`}>
             <StepIndicator>
               <StepStatus
                 complete={
@@ -115,7 +115,7 @@ export const VerticalStepper = ({
           </Step>
         ) : (
           <>
-            <Step key={`parentStep-${index}`}>
+            <Step key={`parent-step-${index}`}>
               <StepIndicator>
                 <StepStatus
                   complete={
@@ -210,7 +210,7 @@ export const VerticalStepper = ({
                 zIndex="1"
               >
                 {step.sub.data.map((stepChild, indexChild) => (
-                  <Step key={`childStep-${indexChild}`}>
+                  <Step key={`child-step-${indexChild}`}>
                     <StepIndicator>
                       <StepStatus
                         complete={

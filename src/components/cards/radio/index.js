@@ -56,6 +56,16 @@ RadioCard.defaultProps = {
       alignItems: "center",
       justifyContent: "center",
       bg: "#fff"
+    },
+    activeStyle: {
+      bg: "#ff7900",
+      borderColor: "black",
+      checkbg: "black"
+    },
+    noActiveStyle: {
+      bg: "black",
+      borderColor: "#fff",
+      checkbg: "#fff"
     }
   }
 };
