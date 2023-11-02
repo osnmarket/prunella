@@ -9,7 +9,8 @@ export const MobileDrawer = ({
   isOpen,
   onClose,
   mainMenu,
-  borderColor
+  borderColor,
+  children
 }) => {
   return (
     <CustomDrawer
@@ -37,6 +38,7 @@ export const MobileDrawer = ({
       >
         <IndicatorMenuList payload={mainMenu} active={active} colors={colors} />
       </VStack>
+      {children}
     </CustomDrawer>
   );
 };
