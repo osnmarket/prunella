@@ -12,14 +12,16 @@ import { Fragment } from "react";
 export const AccordionItemCard = ({ style, title, desc, icon, isExpanded }) => {
   return (
     <AccordionItem {...style}>
-      <AccordionContent
-        {...{
-          title,
-          desc,
-          icon,
-          isExpanded
-        }}
-      />
+      {({ isExpanded }) => (
+        <AccordionContent
+          {...{
+            title,
+            desc,
+            icon,
+            isExpanded
+          }}
+        />
+      )}
     </AccordionItem>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Card, Box, HStack, Avatar } from "@chakra-ui/react";
+import { Card, Box, HStack, Avatar } from "@chakra-ui/react";
 
 export const BubbleCard = ({
   children,

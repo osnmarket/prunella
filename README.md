@@ -113,7 +113,7 @@ export const Test = () => {
 This project is used by the following projects:
 
 - [Souxate](?)
-- [osn story book](?)
+- [Osn story book](?)
 
 ### Contributing
 

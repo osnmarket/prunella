@@ -10,8 +10,7 @@ export const ProgressBar = ({ label, progress, desc }) => {
       </Progress>
       {desc && (
         <HStack mt="0.5rem">
-          {desc.img && <Image {...desc.img} />}
-          {desc.icon && desc.icon}
+          {desc.img ? <Image {...desc.img} /> : <>{desc.icon}</>}
           <Text>{desc.message}</Text>
         </HStack>
       )}
