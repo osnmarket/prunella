@@ -10,7 +10,8 @@ export const MobileDrawer = ({
   onClose,
   mainMenu,
   borderColor,
-  children
+  header,
+  footer,
 }) => {
   return (
     <CustomDrawer
@@ -18,7 +19,7 @@ export const MobileDrawer = ({
       isFullHeight
       {...{
         onClose,
-        isOpen
+        isOpen,
       }}
       size={"full"}
       placement={"right"}
@@ -30,6 +31,7 @@ export const MobileDrawer = ({
         ></Stack>
       }
     >
+      {header}
       <VStack
         alignItems={"flex-start"}
         justifyContent={"space-between"}
@@ -38,7 +40,7 @@ export const MobileDrawer = ({
       >
         <IndicatorMenuList payload={mainMenu} active={active} colors={colors} />
       </VStack>
-      {children}
+      {footer}
     </CustomDrawer>
   );
 };

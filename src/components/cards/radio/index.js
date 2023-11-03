@@ -44,7 +44,7 @@ RadioCard.defaultProps = {
   commonStyle: {
     box: {
       p: 5,
-      rounded: "md"
+      rounded: "md",
     },
     check: {
       border: "2px",
@@ -54,17 +54,17 @@ RadioCard.defaultProps = {
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      bg: "#fff"
+      bg: "#fff",
     },
     activeStyle: {
       bg: "#ff7900",
       borderColor: "black",
-      checkbg: "black"
+      checkbg: "black",
     },
     noActiveStyle: {
       bg: "black",
       borderColor: "#fff",
-      checkbg: "#fff"
-    }
-  }
+      checkbg: "#fff",
+    },
+  },
 };
