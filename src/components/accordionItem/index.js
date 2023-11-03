@@ -10,7 +10,14 @@ import {
 } from "@chakra-ui/react";
 import { Fragment } from "react";
 
-export const AccordionItemCard = ({ style, title, desc, icon, isExpanded }) => {
+export const AccordionItemCard = ({
+  style,
+  title,
+  desc,
+  icon,
+  titleIcon,
+  isExpanded,
+}) => {
   return (
     <AccordionItem {...style}>
       {({ isExpanded }) => (
@@ -20,6 +27,7 @@ export const AccordionItemCard = ({ style, title, desc, icon, isExpanded }) => {
             desc,
             icon,
             isExpanded,
+            titleIcon,
           }}
         />
       )}
@@ -38,11 +46,13 @@ export const AccordionContent = ({
     <Fragment>
       <Heading fontSize={"md"}>
         <AccordionButton _hover={{ bgColor: "transparent" }}>
-          <HStack gap="1rem">
-            {titleIcon && <Box>{titleIcon}</Box>}
-            <Heading fontSize={"1rem"}>{title}</Heading>
+          <HStack justifyContent={"start"}>
+            <HStack gap="1rem">{titleIcon && <Box>{titleIcon}</Box>}</HStack>
+            <HStack justifyContent={"space-between"}>
+              <Heading fontSize={"1rem"}>{title}</Heading>
+              {isExpanded && icon ? icon.isExpanded : icon.noExpanded}
+            </HStack>
           </HStack>
-          {isExpanded && icon ? icon.isExpanded : icon.noExpanded}
         </AccordionButton>
       </Heading>
       <AccordionPanel pb={4}>{desc}</AccordionPanel>
