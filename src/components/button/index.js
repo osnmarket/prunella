@@ -7,14 +7,14 @@ export const IconedButton = ({
   style,
   message,
   rightIcon,
-  leftIcon
+  leftIcon,
 }) => {
   return (
     <Button
       {...{
         onClick,
         leftIcon,
-        rightIcon
+        rightIcon,
       }}
       {...(!rightIcon &&
         !leftIcon && { rightIcon: <FiArrowRight size={"1.5rem"} /> })}
@@ -31,7 +31,7 @@ export const SocialButton = ({ onClick, style, message, leftIcon }) => {
       {...style}
       {...{
         onClick,
-        leftIcon
+        leftIcon,
       }}
     >
       {message}
@@ -55,26 +55,26 @@ export const BackToHome = ({ onClick, cta, leftIcon }) => {
   );
 };
 
-export const ReactionButton = ({
-  onClick,
-  style,
-  icon,
-  message,
-  outMessage
-}) => {
-  return outMessage ? (
-    <VStack>
-      <Button {...style} onClick={onClick}>
-        {icon.value}
-      </Button>
-      <Text {...message.style}>{message.value}</Text>
-    </VStack>
-  ) : (
-    <Button {...style} onClick={onClick}>
-      <VStack>
-        <Text {...icon.style}>{icon.value}</Text>
+export const ReactionButton = ({ onClick, style, icon, message }) => {
+  return (
+    <>
+      <VStack display={{ base: "block", md: "none" }}>
+        <Button {...style} onClick={onClick}>
+          {icon.value}
+        </Button>
         <Text {...message.style}>{message.value}</Text>
       </VStack>
-    </Button>
+
+      <Button
+        {...style}
+        onClick={onClick}
+        display={{ base: "none", md: "block" }}
+      >
+        <VStack>
+          <Text {...icon.style}>{icon.value}</Text>
+          <Text {...message.style}>{message.value}</Text>
+        </VStack>
+      </Button>
+    </>
   );
 };

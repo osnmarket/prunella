@@ -2,7 +2,7 @@ export {
   IconedButton,
   SocialButton,
   BackToHome,
-  ReactionButton
+  ReactionButton,
 } from "./button";
 export { Heading } from "./heading";
 export { FormInput, FormSubmit, FormSearch } from "./input/FormInput";
@@ -14,7 +14,8 @@ export { IconedListItem, ClickableListItem } from "./text";
 export {
   AccordionItemCard,
   AccordionContent,
-  AccordionList
+  AccordionList,
+  AccordionMenu,
 } from "./accordionItem";
 export { BubbleCard } from "./cards/bubble";
 export { InfoCard } from "./cards/info";
@@ -30,3 +31,4 @@ export { FollowUs } from "./columnList/followUs";
 export { FooterColumn } from "./columnList";
 export { Recap } from "./recap";
 export { BasicMenuList, IndicatorMenuList } from "./menu/index";
+export { MegaMenu } from "./menu/megaMenu";

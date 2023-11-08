@@ -13,49 +13,15 @@ import {
   Textarea,
   VStack,
   extendTheme,
-  ChakraProvider
+  ChakraProvider,
 } from "@chakra-ui/react";
 import { ErrorMessage } from "formik";
 import { FiSearch } from "react-icons/fi";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 
 const activeLabelStyles = {
-  transform: "scale(0.85) translateY(-24px)"
+  transform: "scale(0.85) translateY(-24px)",
 };
-
-export const theme = extendTheme({
-  components: {
-    Form: {
-      variants: {
-        floating: {
-          container: {
-            _focusWithin: {
-              label: {
-                ...activeLabelStyles
-              }
-            },
-            "input:not(:placeholder-shown) + label, .chakra-select__wrapper + label, textarea:not(:placeholder-shown) + label":
-              {
-                ...activeLabelStyles
-              },
-            label: {
-              top: 0,
-              left: 0,
-              zIndex: 2,
-              position: "absolute",
-              backgroundColor: "white",
-              pointerEvents: "none",
-              mx: 3,
-              px: 1,
-              my: 2,
-              transformOrigin: "left top"
-            }
-          }
-        }
-      }
-    }
-  }
-});
 
 export const FormInput = ({
   colors,
@@ -76,36 +42,73 @@ export const FormInput = ({
   pb,
   isDisabled,
   passwordTypeToggler,
-  secureTextEntry
+  secureTextEntry,
+  variant,
+  h,
 }) => {
   const inputProps = {
     bgColor: colors.bgColor,
-    colorScheme: colors.colorScheme,
+    color: colors.color,
     name: uid,
     onChange: handleChange,
     onBlur: handleBlur,
     borderColor: colors.borderColor,
-    fontColor: colors.fontColor,
+    fontcolor: colors.fontColor,
+    focusBorderColor: colors.focus,
     placeholder,
     type: type || "text",
     value: values[uid],
-    h: 50,
+    h: h || 50,
     w: "100%",
-    isDisabled
+    isDisabled,
   };
+  const theme = extendTheme({
+    components: {
+      Form: {
+        variants: {
+          floating: {
+            container: {
+              _focusWithin: {
+                label: {
+                  ...activeLabelStyles,
+                },
+              },
+              "div:has(input:not(:placeholder-shown)) + label, .chakra-select__wrapper + label, textarea:not(:placeholder-shown) + label":
+                {
+                  ...activeLabelStyles,
+                },
+              label: {
+                top: 0,
+                left: 0,
+                zIndex: 2,
+                position: "absolute",
+                backgroundColor: colors.bgColor,
+                pointerEvents: "none",
+                mx: 3,
+                px: 1,
+                my: 2,
+                transformOrigin: "left top",
+              },
+            },
+          },
+        },
+      },
+    },
+  });
   return (
     <ChakraProvider theme={theme}>
       <FormControl
         {...{ pt, pb, py }}
         isInvalid={errors[uid]}
-        variant="floating"
-      >
-        <FormLabel color={colors.color} fontWeight={"bold"}>
-          {label}
-        </FormLabel>
+        variant={variant || "floating"}>
+        {variant !== "floating" && (
+          <FormLabel color={inputProps.color} fontWeight={"bold"}>
+            {label}
+          </FormLabel>
+        )}
 
         {textArea ? (
-          <Textarea p={5} minH={220} maxH={220} {...inputProps} />
+          <Textarea p={3} {...inputProps} />
         ) : select ? (
           <Select {...inputProps}>
             {options.map((option, i) => (
@@ -124,18 +127,21 @@ export const FormInput = ({
                 top={"30%"}
                 _hover={{ cursor: "pointer" }}
                 onClick={passwordTypeToggler}
-                zIndex={2}
-              >
+                zIndex={2}>
                 {type == "password" ? (
-                  <VscEye color={colors.color} size={"1.25rem"} />
+                  <VscEye color={inputProps.color} size={"1.25rem"} />
                 ) : (
-                  <VscEyeClosed color={colors.color} size={"1.25rem"} />
+                  <VscEyeClosed color={inputProps.color} size={"1.25rem"} />
                 )}
               </Box>
             )}
           </Box>
         )}
-
+        {variant === "floating" && (
+          <FormLabel color={inputProps.color} fontWeight={"bold"}>
+            {label}
+          </FormLabel>
+        )}
         {errors[uid] && touched[uid] && (
           <FormErrorMessage>{errors[uid]}</FormErrorMessage>
         )}
@@ -163,14 +169,15 @@ export const FormSubmit = ({
   leftIcon,
   borderRadius,
   borderWidth,
-  h = "3rem"
+  h = "3rem",
+  style,
 }) => {
   return (
     <FormControl {...{ pt, pb, colorScheme }}>
       <Button
         {...{
           rightIcon,
-          leftIcon
+          leftIcon,
         }}
         onClick={handleSubmit}
         colorScheme={colorScheme}
@@ -178,7 +185,7 @@ export const FormSubmit = ({
           borderWidth,
           borderRadius,
           color,
-          h
+          h,
         }}
         bgColor={colors.bgColor}
         w={"100%"}
@@ -186,7 +193,7 @@ export const FormSubmit = ({
         isDisabled={isSubmitting}
         isLoading={isSubmitting}
         loadingText={loadingText}
-      >
+        {...style}>
         {submit_message}
       </Button>
       {errors[uid] && touched[uid] && (
@@ -214,7 +221,7 @@ export const FormSearch = ({
   handleBlur,
   value,
   isDisabled,
-  placeholder
+  placeholder,
 }) => {
   const inputProps = {
     borderColor: colors.borderColor,
@@ -226,7 +233,7 @@ export const FormSearch = ({
     value,
     h: "3rem",
     w: "100%",
-    isDisabled
+    isDisabled,
   };
 
   return (

@@ -9,6 +9,8 @@ import {
   Heading,
 } from "@chakra-ui/react";
 import { Fragment } from "react";
+import { BsChevronUp, BsChevronDown } from "react-icons/bs";
+import { FooterColumn } from "../columnList";
 
 export const AccordionItemCard = ({
   style,
@@ -46,9 +48,9 @@ export const AccordionContent = ({
     <Fragment>
       <Heading fontSize={"md"}>
         <AccordionButton _hover={{ bgColor: "transparent" }}>
-          <HStack justifyContent={"start"}>
+          <HStack justifyContent={"start"} w="100%">
             <HStack gap="1rem">{titleIcon && <Box>{titleIcon}</Box>}</HStack>
-            <HStack justifyContent={"space-between"}>
+            <HStack justifyContent={"space-between"} w="100%">
               <Heading fontSize={"1rem"}>{title}</Heading>
               {isExpanded && icon ? icon.isExpanded : icon.noExpanded}
             </HStack>
@@ -67,5 +69,70 @@ export const AccordionList = ({ payload }) => {
         <AccordionItemCard key={`AccordionItemCard-${i}`} {...accordion} />
       ))}
     </Accordion>
+  );
+};
+
+export const AccordionMenu = ({ payload }) => {
+  return (
+    <Accordion allowToggle>
+      {payload.map((accordion, i) => (
+        <AccordionMenuItemCard key={`AccordionItemCard-${i}`} {...accordion} />
+      ))}
+    </Accordion>
+  );
+};
+
+export const AccordionMenuItemCard = ({
+  style,
+  title,
+  bellow,
+  titleIcon,
+  isExpanded,
+}) => {
+  return (
+    <AccordionItem {...style}>
+      {({ isExpanded }) => (
+        <AccordionMenuContent
+          {...{
+            title,
+            bellow,
+            isExpanded,
+            titleIcon,
+          }}
+        />
+      )}
+    </AccordionItem>
+  );
+};
+
+export const AccordionMenuContent = ({
+  title,
+  bellow,
+  isExpanded,
+  titleIcon,
+}) => {
+  const colorsProps = {
+    heading: "#000",
+    link: "#000",
+    text: "#000",
+    active: "#fd7e14",
+  };
+  return (
+    <Fragment>
+      <Heading fontSize={"md"}>
+        <AccordionButton _hover={{ bgColor: "transparent" }}>
+          <HStack justifyContent={"start"} w="100%">
+            <HStack gap="1rem">{titleIcon && <Box>{titleIcon}</Box>}</HStack>
+            <HStack justifyContent={"space-between"} w="100%">
+              <Heading fontSize={"1rem"}>{title}</Heading>
+              {isExpanded ? <BsChevronUp /> : <BsChevronDown />}
+            </HStack>
+          </HStack>
+        </AccordionButton>
+      </Heading>
+      <AccordionPanel pb={4}>
+        <FooterColumn colors={colorsProps} submenu={bellow} />
+      </AccordionPanel>
+    </Fragment>
   );
 };

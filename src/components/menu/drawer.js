@@ -1,17 +1,17 @@
 import React from "react";
-import { Stack, StackDivider, VStack } from "@chakra-ui/react";
-import { IndicatorMenuList } from "./index";
+import { Stack, StackDivider } from "@chakra-ui/react";
 import { CustomDrawer } from "../drawer";
 
 export const MobileDrawer = ({
-  colors,
-  active,
+  //colors,
+  //active,
   isOpen,
   onClose,
-  mainMenu,
+  //mainMenu,
   borderColor,
-  header,
-  footer,
+  Children,
+  //header,
+  //footer,
 }) => {
   return (
     <CustomDrawer
@@ -27,20 +27,18 @@ export const MobileDrawer = ({
         <Stack
           divider={
             <StackDivider borderColor={borderColor} borderStyle={"dashed"} />
-          }
-        ></Stack>
-      }
-    >
-      {header}
+          }></Stack>
+      }>
+      {Children}
+      {/*  {header}
       <VStack
         alignItems={"flex-start"}
         justifyContent={"space-between"}
         pos={"relative"}
-        h={"100%"}
       >
         <IndicatorMenuList payload={mainMenu} active={active} colors={colors} />
       </VStack>
-      {footer}
+      {footer} */}
     </CustomDrawer>
   );
 };

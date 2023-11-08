@@ -9,14 +9,15 @@ import {
   StepSeparator,
   StepStatus,
   StepTitle,
-  Stepper
+  Stepper,
 } from "@chakra-ui/react";
+import { BsChevronRight } from "react-icons/bs";
 
 export const HorizontalStepper = ({
   activeStepControl,
   stepStyle,
   separatorStyle,
-  steps
+  steps,
 }) => {
   return (
     <Stack>
@@ -27,9 +28,9 @@ export const HorizontalStepper = ({
         }
         index={activeStepControl}
         justifyContent={"start"}
-      >
+        gap="2">
         {steps.map((step, index) => (
-          <Step key={`step-${index}`} flex={"none"}>
+          <Step key={`step-${index}`} flex={"none"} gap="0">
             <HStack
               bg={
                 index < activeStepControl
@@ -39,7 +40,7 @@ export const HorizontalStepper = ({
                   : stepStyle.onInComplete
               }
               opacity={index <= activeStepControl ? 1 : 0.5}
-              p={stepStyle.padding ? stepStyle.padding : "3"}
+              p="0.625rem"
               borderRadius={
                 stepStyle.borderRadius ? stepStyle.borderRadius : "0.5rem"
               }
@@ -47,8 +48,7 @@ export const HorizontalStepper = ({
                 index < activeStepControl
                   ? stepStyle.color.before
                   : stepStyle.color.after
-              }
-            >
+              }>
               <StepIndicator>
                 <StepStatus
                   complete={
@@ -99,40 +99,33 @@ export const HorizontalStepper = ({
                 />
               </StepIndicator>
               {step.title && (
-                <Box flexShrink="0">
+                <Box flexShrink="0" fontSize={"1rem"}>
                   <StepTitle>{step.title}</StepTitle>
                 </Box>
               )}
             </HStack>
             <StepSeparator
+              mx="0"
               style={
                 index < activeStepControl
                   ? {
                       background: separatorStyle.onComplete,
-                      width: stepStyle.spacing ? stepStyle.spacing : "30px"
+                      width: stepStyle.spacing ? stepStyle.spacing : "30px",
                     }
                   : {
                       background: separatorStyle.onInComplete,
-                      width: stepStyle.spacing ? stepStyle.spacing : "30px"
+                      width: stepStyle.spacing ? stepStyle.spacing : "30px",
                     }
-              }
-            >
-              <Box
-                position="absolute"
-                top={stepStyle.padding ? stepStyle.padding : "3"}
-                right="-0.5"
-                bgColor={
-                  index < activeStepControl
-                    ? separatorStyle.onComplete
-                    : separatorStyle.onInComplete
-                }
-                h="30px"
-                w="30px"
-                style={{
-                  clipPath:
-                    "polygon(47% 23%, 100% 52%, 47% 79%, 47% 69%, 90% 52%, 47% 33%)"
-                }}
-              ></Box>
+              }>
+              <Box position="absolute" top="3.5" right="-1.2">
+                <BsChevronRight
+                  color={
+                    index < activeStepControl
+                      ? separatorStyle.onComplete
+                      : separatorStyle.onInComplete
+                  }
+                />
+              </Box>
             </StepSeparator>
           </Step>
         ))}
@@ -144,17 +137,17 @@ export const HorizontalStepper = ({
 HorizontalStepper.defaultProps = {
   activeStepControl: 0,
   stepStyle: {
-    size: "md",
+    size: "sm",
     onComplete: "black",
     onActive: "#ff7900",
     onInComplete: "#dddddd",
     color: {
       before: "white",
-      after: "black"
-    }
+      after: "black",
+    },
   },
   separatorStyle: {
     onComplete: "black",
-    onInComplete: "#dddddd"
-  }
+    onInComplete: "#dddddd",
+  },
 };
