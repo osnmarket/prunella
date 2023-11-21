@@ -14,7 +14,6 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
-import { useRouter } from "next/navigation";
 import { BiMenu } from "react-icons/bi";
 import { BsHeadset, BsShop } from "react-icons/bs";
 import {

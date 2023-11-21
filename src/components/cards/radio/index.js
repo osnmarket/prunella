@@ -18,7 +18,7 @@ export const RadioCard = ({
         {...getRadioProps()}
         {...commonStyle.box}
       >
-        <HStack>
+        <HStack alignItems={'stretch'}>
           <Box
             bordercolor={
               state.isChecked

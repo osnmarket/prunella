@@ -1,5 +1,5 @@
 import React from "react";
-import { HStack, Stack } from "@chakra-ui/layout";
+import { HStack, Stack } from "@chakra-ui/react";
 import { MenuLink } from "./link";
 
 export const BasicMenuList = ({
@@ -11,7 +11,7 @@ export const BasicMenuList = ({
   desktop,
   payload,
   borderHeight,
-  withIndicator
+  withIndicator,
 }) => {
   return (
     <HStack alignItems={"center"} gap={".81rem"} py={".1rem"}>
@@ -27,7 +27,7 @@ export const BasicMenuList = ({
             title,
             link,
             desktop,
-            borderHeight
+            borderHeight,
           }}
           key={`top-menu-${i}`}
         />
@@ -36,7 +36,7 @@ export const BasicMenuList = ({
   );
 };
 
-export const IndicatorMenuList = ({ payload, active, colors, desktop }) => {
+export const IndicatorMenuList = ({ paylozad, active, colors, desktop }) => {
   return (
     <Stack alignItems={"flex-start"} gap={"2rem"} py={".1rem"}>
       {payload.map(({ title, cta: { link } }, i) => (
