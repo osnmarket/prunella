@@ -19,11 +19,11 @@ export const Summary = ({
 }) => {
   return (
     <Card {...containerStyle} fontSize={{ base: "1rem" }}>
-      <CardHeader {...headerStyle}>
+      <CardHeader p={0} {...headerStyle} >
         {isValidElement(data.header) ? data.header : <Text>{data.header}</Text>}
       </CardHeader>
 
-      <CardBody>
+      <CardBody p={0}>
         {isValidElement(data.body) ? (
           data.body
         ) : (
@@ -38,17 +38,15 @@ export const Summary = ({
         )}
       </CardBody>
 
-      <CardFooter>
-        <HStack {...footerStyle}>
-          {isValidElement(data.footer) ? (
+      <CardFooter p={0}>
+        {isValidElement(data.footer) ? (
             data.footer
-          ) : (
-            <>
+        ) : (
+        <HStack {...footerStyle}>
               <Text> {data.footer.title} </Text>
               <Text> {data.footer.value + " " + data.footer.unit} </Text>
-            </>
-          )}
         </HStack>
+        )}
       </CardFooter>
     </Card>
   );

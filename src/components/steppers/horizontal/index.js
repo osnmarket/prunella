@@ -117,7 +117,7 @@ export const HorizontalStepper = ({
                       width: stepStyle.spacing ? stepStyle.spacing : "30px",
                     }
               }>
-              <Box position="absolute" top="3.5" right="-1.2">
+              <Box position="absolute" top="3.5" right="-5.5px">
                 <BsChevronRight
                   color={
                     index < activeStepControl

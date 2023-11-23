@@ -35,14 +35,14 @@ export const Recap = ({
     <Fragment>
       <VStack align="stretch">
         <HStack>
-          <Text>{title}</Text>
+          <Text fontWeight={"bold"} fontSize={"1rem"}>{title}</Text>
           <IconedButton {...(defaultCta || cta)} />
         </HStack>
         <SimpleGrid {...grid}>
           {data.map(({ title, value }, i) => (
             <HStack key={`item-${i}`}>
               <Text>{title} :</Text>
-              <Text>{value}</Text>
+              <Text fontWeight={"bold"}>{value}</Text>
             </HStack>
           ))}
         </SimpleGrid>

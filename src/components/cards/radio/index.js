@@ -1,7 +1,8 @@
 import React from "react";
 import { Box, HStack, chakra, useRadio } from "@chakra-ui/react";
 
-export const RadioCard = ({
+export const RadioCard = (
+    {
   activeStyle,
   noActiveStyle,
   commonStyle,
@@ -11,32 +12,34 @@ export const RadioCard = ({
   const { state, getInputProps, getRadioProps, htmlProps } =
     useRadio(radioProps);
   return (
-    <chakra.label {...htmlProps}>
-      <input {...getInputProps({})} />
-      <Box
-        bg={state.isChecked ? activeStyle.bg : noActiveStyle.bg}
-        {...getRadioProps()}
-        {...commonStyle.box}
-      >
-        <HStack alignItems={'stretch'}>
+        <chakra.label {...htmlProps}>
+          <input {...getInputProps({})} />
           <Box
-            bordercolor={
-              state.isChecked
-                ? activeStyle.borderColor
-                : noActiveStyle.borderColor
-            }
-            {...commonStyle.check}
+              bg={state.isChecked ? activeStyle.bg : noActiveStyle.bg}
+            {...getRadioProps()}
+            {...commonStyle.box}
+
           >
-            <Box
-              bg={state.isChecked ? activeStyle.checkbg : noActiveStyle.checkbg}
-              rounded={commonStyle.check.rounded}
-              p={commonStyle.check.p}
-            ></Box>
+            <HStack alignItems={'stretch'}>
+              <Box
+                  {...commonStyle.check}
+                borderColor={
+                  state.isChecked
+                    ? activeStyle.borderColor
+                    : noActiveStyle.borderColor
+                }
+
+              >
+                <Box
+                  bg={state.isChecked ? activeStyle.checkbg : noActiveStyle.checkbg}
+                  rounded={commonStyle.check.rounded}
+                  p={commonStyle.check.p}
+                ></Box>
+              </Box>
+              {children}
+            </HStack>
           </Box>
-          {children}
-        </HStack>
-      </Box>
-    </chakra.label>
+        </chakra.label>
   );
 };
 
