@@ -1,7 +1,6 @@
 import React from "react";
-import { Box, chakra, Flex, useCheckbox } from "@chakra-ui/react";
+import { Box, chakra, Flex, useCheckbox , HStack } from "@chakra-ui/react";
 import { FaCheck } from "react-icons/fa";
-import { HStack } from "@chakra-ui/layout";
 
 const defaultStyle = {
     style: {
