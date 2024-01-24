@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, VStack, Text } from "@chakra-ui/react";
+import { Button, VStack, Text , Box, Image } from "@chakra-ui/react";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 export const IconedButton = ({
@@ -59,8 +59,7 @@ export const ReactionButton = ({ onClick, style, icon, message }) => {
   return (
     <>
       <VStack display={{ base: "block", md: "none" }}>
-        <Button {...style} onClick={onClick}>
-          {icon.value}
+        <Button {...style} onClick={onClick} leftIcon={icon}>
         </Button>
         <Text {...message.style}>{message.value}</Text>
       </VStack>
@@ -71,7 +70,9 @@ export const ReactionButton = ({ onClick, style, icon, message }) => {
         display={{ base: "none", md: "block" }}
       >
         <VStack>
-          <Text {...icon.style}>{icon.value}</Text>
+          <Box>
+            {icon}
+          </Box>
           <Text {...message.style}>{message.value}</Text>
         </VStack>
       </Button>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Fragment} from "react";
 import {
   Box,
   Image,
@@ -30,7 +30,7 @@ export const VerticalStepper = ({
     >
       {steps.map((step, index) =>
         !step.sub ? (
-          <Step key={`parent-step-${index}`}>
+          <Step key={`parent-step-${index}`} >
             <StepIndicator>
               <StepStatus
                 complete={
@@ -114,8 +114,8 @@ export const VerticalStepper = ({
             />
           </Step>
         ) : (
-          <>
-            <Step key={`parent-step-${index}`}>
+          <Fragment  key={`parent-step-${index}`}>
+            <Step >
               <StepIndicator>
                 <StepStatus
                   complete={
@@ -197,7 +197,7 @@ export const VerticalStepper = ({
                 }
               />
             </Step>
-            <Step key={index} display={!step.isOpen ? "none" : "flex"}>
+            <Step  display={!step.isOpen ? "none" : "flex"} >
               <Stepper
                 index={activeStepControl.child}
                 size="sm"
@@ -309,7 +309,7 @@ export const VerticalStepper = ({
                 }}
               />
             </Step>
-          </>
+          </Fragment>
         )
       )}
     </Stepper>

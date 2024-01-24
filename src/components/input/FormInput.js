@@ -112,7 +112,7 @@ export const FormInput = ({
         ) : select ? (
           <Select {...inputProps}>
             {options.map((option, i) => (
-              <option value={option.value} key={`${uid}-option-${i}`}>
+              <option value={option.value} key={`${uid}-option-${i}`} id={option.value}>
                 {option.name}
               </option>
             ))}

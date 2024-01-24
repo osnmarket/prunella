@@ -30,12 +30,12 @@ export const HorizontalStepper = ({
         justifyContent={"start"}
         gap="2">
         {steps.map((step, index) => (
-          <Step key={`step-${index}`} flex={"none"} gap="0">
+          <Step key={`step-${index}`} flex={"none"} gap="0" >
             <HStack
               bg={
                 index < activeStepControl
                   ? stepStyle.onComplete
-                  : index == activeStepControl
+                  : index === activeStepControl
                   ? stepStyle.onActive
                   : stepStyle.onInComplete
               }

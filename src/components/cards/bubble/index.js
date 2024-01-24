@@ -7,7 +7,7 @@ export const BubbleCard = ({
   imgStyle,
   containerStyle,
   bubbleBorderStyle,
-  bubbleStyle,
+  bubbleStyle, clicPathPosition,
   display
 }) => {
   return (
@@ -17,11 +17,11 @@ export const BubbleCard = ({
           <Avatar {...imgStyle} />
         </Box>
       )}
-      <HStack w="100%">
+      <HStack w="100%"   position="relative">
         <Box
-          position="relative"
-          zIndex={2}
-          display={display == "left" ? "block" : "none"}
+            position={"absolute"}
+            {...clicPathPosition}
+            display={display == "left" ? "block" : "none"}
         >
           {bubbleBorderStyle && (
             <Box
@@ -42,8 +42,8 @@ export const BubbleCard = ({
           {children}
         </Card>
         <Box
-          position="relative"
-          zIndex={2}
+            position={"absolute"}
+            {...clicPathPosition}
           display={display == "right" ? "block" : "none"}
         >
           {bubbleBorderStyle && (
@@ -79,6 +79,11 @@ BubbleCard.defaultProps = {
     bg: "#b5e8f7",
     top: "4",
     position: "absolute"
+  },
+  clicPathPosition:{
+    left:"-8px",
+    bottom:"24px",
+    zIndex:2,
   },
   display: "left",
   cardStyle: {

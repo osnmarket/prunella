@@ -42,8 +42,7 @@ const BurgerMenuItem = ({ title, titleIcon, menuItems, isFirst }) => {
         pl: 10,
         borderStyle: "solid",
         borderColor: "#eee",
-      })}
-      key={`main-menu-${1}`}>
+      })}>
       <Avatar
         name={title}
         src={
@@ -96,14 +95,14 @@ export const MegaMenu = ({
             <Grid templateColumns={"repeat(4, 1fr)"} gap={6}>
               {below.map((menu, i) => (
                 <BurgerMenuItem
-                  key={`menu-${i}`}
-                  isFirst={i == 0}
+                  key={`main-menu-burger-${i}`}
+                  isFirst={i === 0}
                   {...menu}
                   menuItems={menu.bellow.map((item, j) => (
                     <MenuItem
                       as="a"
                       href={item.link}
-                      key={`sub-menu-${item.message}-${j}`}>
+                      key={`sub-menu-burger-${i+"-"+item.message}-${j}`}>
                       {item.message}
                     </MenuItem>
                   ))}
@@ -123,7 +122,7 @@ export const MegaMenu = ({
                       leftIcon,
                     }}
                     style={stylesMenuButton}
-                    key={`rightMenu-${i}`}
+                    key={`right-menu-burger-${i}`}
                   />
                 </Box>
               ))}

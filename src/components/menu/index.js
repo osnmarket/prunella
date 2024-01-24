@@ -36,13 +36,13 @@ export const BasicMenuList = ({
   );
 };
 
-export const IndicatorMenuList = ({ paylozad, active, colors, desktop }) => {
+export const IndicatorMenuList = ({ payload, active, colors, desktop }) => {
   return (
     <Stack alignItems={"flex-start"} gap={"2rem"} py={".1rem"}>
       {payload.map(({ title, cta: { link } }, i) => (
         <MenuLink
           withIndicator
-          active={active == i}
+          active={active === i}
           {...{ title, link, desktop, colors }}
           key={`top-menu-${i}`}
         />
