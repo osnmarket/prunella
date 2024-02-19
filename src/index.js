@@ -1,5 +1,9 @@
-import * as components from "./components";
+import {Lib as lib} from "./lib";
+import {components} from "./components";
+import {componentStyles} from "./_styles/variants";
 
 export default {
-  ...components
+    ...lib,
+    ...components,
+    componentStyles,
 };
