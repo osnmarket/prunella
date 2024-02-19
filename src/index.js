@@ -1,9 +1,9 @@
-import * as common from "./common";
-import * as variants from "./variants"
-import * as libs from "./libs"
+import {Lib as lib} from "./lib";
+import {components} from "./components";
+import {componentStyles} from "./_styles/variants";
 
 export default {
-    ...common,
-    ...variants,
-    ...libs
+    ...lib,
+    ...components,
+    componentStyles,
 };
